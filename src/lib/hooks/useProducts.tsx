@@ -27,7 +27,7 @@ function ProductsProvider({ children }: { children: ReactNode }) {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
-  async function fetchProjects() {
+  async function fetchProducts() {
     try {
       setIsLoading(true);
       const res = await api.get("/products");
@@ -55,7 +55,7 @@ function ProductsProvider({ children }: { children: ReactNode }) {
   }
 
   useEffect(() => {
-    fetchProjects();
+    fetchProducts();
   }, []);
 
   return (

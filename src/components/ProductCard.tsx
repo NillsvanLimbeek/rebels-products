@@ -8,7 +8,7 @@ interface Props {
 }
 
 export function ProductCard({ product }: Props) {
-  const { image, loading } = usePixabay(product.image);
+  const { image, loading } = usePixabay(product.imageSearch);
 
   return (
     <Link to="/product/$id" params={{ id: String(product.id) }}>
