@@ -1,8 +1,9 @@
 export interface Product {
-  id: number;
+  id: string;
   name: string;
   brand: string;
   category: string;
-  image: string;
+  imageSearch: string;
+  imageUrl: string;
   specifications: Record<string, string>;
 }
