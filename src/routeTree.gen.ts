@@ -17,16 +17,16 @@ import { Route as ProductIdImport } from './routes/product/$id'
 
 // Create Virtual Routes
 
-const AboutLazyImport = createFileRoute('/about')()
+const WishlistsLazyImport = createFileRoute('/wishlists')()
 const IndexLazyImport = createFileRoute('/')()
 
 // Create/Update Routes
 
-const AboutLazyRoute = AboutLazyImport.update({
-  id: '/about',
-  path: '/about',
+const WishlistsLazyRoute = WishlistsLazyImport.update({
+  id: '/wishlists',
+  path: '/wishlists',
   getParentRoute: () => rootRoute,
-} as any).lazy(() => import('./routes/about.lazy').then((d) => d.Route))
+} as any).lazy(() => import('./routes/wishlists.lazy').then((d) => d.Route))
 
 const IndexLazyRoute = IndexLazyImport.update({
   id: '/',
@@ -51,11 +51,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexLazyImport
       parentRoute: typeof rootRoute
     }
-    '/about': {
-      id: '/about'
-      path: '/about'
-      fullPath: '/about'
-      preLoaderRoute: typeof AboutLazyImport
+    '/wishlists': {
+      id: '/wishlists'
+      path: '/wishlists'
+      fullPath: '/wishlists'
+      preLoaderRoute: typeof WishlistsLazyImport
       parentRoute: typeof rootRoute
     }
     '/product/$id': {
@@ -72,41 +72,41 @@ declare module '@tanstack/react-router' {
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexLazyRoute
-  '/about': typeof AboutLazyRoute
+  '/wishlists': typeof WishlistsLazyRoute
   '/product/$id': typeof ProductIdRoute
 }
 
 export interface FileRoutesByTo {
   '/': typeof IndexLazyRoute
-  '/about': typeof AboutLazyRoute
+  '/wishlists': typeof WishlistsLazyRoute
   '/product/$id': typeof ProductIdRoute
 }
 
 export interface FileRoutesById {
   __root__: typeof rootRoute
   '/': typeof IndexLazyRoute
-  '/about': typeof AboutLazyRoute
+  '/wishlists': typeof WishlistsLazyRoute
   '/product/$id': typeof ProductIdRoute
 }
 
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/about' | '/product/$id'
+  fullPaths: '/' | '/wishlists' | '/product/$id'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/about' | '/product/$id'
-  id: '__root__' | '/' | '/about' | '/product/$id'
+  to: '/' | '/wishlists' | '/product/$id'
+  id: '__root__' | '/' | '/wishlists' | '/product/$id'
   fileRoutesById: FileRoutesById
 }
 
 export interface RootRouteChildren {
   IndexLazyRoute: typeof IndexLazyRoute
-  AboutLazyRoute: typeof AboutLazyRoute
+  WishlistsLazyRoute: typeof WishlistsLazyRoute
   ProductIdRoute: typeof ProductIdRoute
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexLazyRoute: IndexLazyRoute,
-  AboutLazyRoute: AboutLazyRoute,
+  WishlistsLazyRoute: WishlistsLazyRoute,
   ProductIdRoute: ProductIdRoute,
 }
 
@@ -121,15 +121,15 @@ export const routeTree = rootRoute
       "filePath": "__root.tsx",
       "children": [
         "/",
-        "/about",
+        "/wishlists",
         "/product/$id"
       ]
     },
     "/": {
       "filePath": "index.lazy.tsx"
     },
-    "/about": {
-      "filePath": "about.lazy.tsx"
+    "/wishlists": {
+      "filePath": "wishlists.lazy.tsx"
     },
     "/product/$id": {
       "filePath": "product/$id.tsx"
