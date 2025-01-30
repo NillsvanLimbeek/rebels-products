@@ -1,8 +1,13 @@
+import { ProductList } from "@/components/ProductList";
+import { Search } from "@/components/Search";
 import { useProducts } from "@/lib/hooks/useProducts";
-import { ProductList } from "./components/ProductList";
-import { Search } from "./components/Search";
+import { createLazyFileRoute } from "@tanstack/react-router";
 
-function App() {
+export const Route = createLazyFileRoute("/")({
+  component: Index,
+});
+
+function Index() {
   const { products, filteredProducts, searchProducts, clearSearch } =
     useProducts();
 
@@ -17,5 +22,3 @@ function App() {
     </div>
   );
 }
-
-export default App;
