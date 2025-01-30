@@ -5,7 +5,7 @@
       "name": "High-Performance Laptop",
       "brand": "TechTron",
       "category": "Electronics",
-      "image": "https://source.unsplash.com/random/600x600?laptop",
+      "image": "laptop",
       "specifications": {
         "processor": "Intel i7",
         "ram": "16GB",
@@ -17,7 +17,7 @@
       "name": "Gaming Mouse",
       "brand": "GamerGadgets",
       "category": "Accessories",
-      "image": "https://source.unsplash.com/random/600x600?gaming-mouse",
+      "image": "gaming+mouse",
       "specifications": {
         "dpi": "12000",
         "buttons": "8",
@@ -29,7 +29,7 @@
       "name": "Bluetooth Headphones",
       "brand": "SoundWave",
       "category": "Audio",
-      "image": "https://source.unsplash.com/random/600x600?headphones",
+      "image": "headphones",
       "specifications": {
         "batteryLife": "20 hours",
         "noiseCancelling": "Yes",
@@ -41,7 +41,7 @@
       "name": "4K Monitor",
       "brand": "DisplayPro",
       "category": "Electronics",
-      "image": "https://source.unsplash.com/random/600x600?4k-monitor",
+      "image": "4k+monitor",
       "specifications": {
         "resolution": "3840x2160",
         "refreshRate": "60Hz",
@@ -53,7 +53,7 @@
       "name": "Gaming Keyboard",
       "brand": "GamerGadgets",
       "category": "Accessories",
-      "image": "https://source.unsplash.com/random/600x600?keyboard",
+      "image": "keyboard",
       "specifications": {
         "keys": "Mechanical",
         "backlight": "RGB",
@@ -65,7 +65,7 @@
       "name": "Wireless Speaker",
       "brand": "SoundWave",
       "category": "Audio",
-      "image": "https://source.unsplash.com/random/600x600?speaker",
+      "image": "speaker",
       "specifications": {
         "batteryLife": "15 hours",
         "output": "20W",
@@ -77,7 +77,7 @@
       "name": "Smartwatch",
       "brand": "TechTron",
       "category": "Wearables",
-      "image": "https://source.unsplash.com/random/600x600?smartwatch",
+      "image": "smartwatch",
       "specifications": {
         "display": "AMOLED",
         "batteryLife": "24 hours",
@@ -89,7 +89,7 @@
       "name": "Tablet",
       "brand": "TechTron",
       "category": "Electronics",
-      "image": "https://source.unsplash.com/random/600x600?tablet",
+      "image": "tablet",
       "specifications": {
         "display": "10 inch",
         "storage": "128GB",
@@ -101,7 +101,7 @@
       "name": "USB Microphone",
       "brand": "SoundWave",
       "category": "Audio",
-      "image": "https://source.unsplash.com/random/600x600?microphone",
+      "image": "microphone",
       "specifications": {
         "frequencyResponse": "20Hz-20kHz",
         "connectivity": "USB",
@@ -113,7 +113,7 @@
       "name": "External Hard Drive",
       "brand": "StoragePlus",
       "category": "Accessories",
-      "image": "https://source.unsplash.com/random/600x600?harddrive",
+      "image": "harddrive",
       "specifications": {
         "capacity": "1TB",
         "connectivity": "USB 3.0",
@@ -125,7 +125,7 @@
       "name": "Ergonomic Chair",
       "brand": "ComfortSeating",
       "category": "Furniture",
-      "image": "https://source.unsplash.com/random/600x600?chair",
+      "image": "chair",
       "specifications": {
         "material": "Mesh",
         "maxWeight": "300 lbs",
@@ -137,7 +137,7 @@
       "name": "Desk Lamp",
       "brand": "BrightLight",
       "category": "Lighting",
-      "image": "https://source.unsplash.com/random/600x600?lamp",
+      "image": "lamp",
       "specifications": {
         "brightness": "800 lumens",
         "colorTemperature": "3000K",
@@ -149,7 +149,7 @@
       "name": "Wireless Charger",
       "brand": "ChargePro",
       "category": "Accessories",
-      "image": "https://source.unsplash.com/random/600x600?charger",
+      "image": "charger",
       "specifications": {
         "input": "USB-C",
         "output": "15W",
@@ -161,7 +161,7 @@
       "name": "Fitness Tracker",
       "brand": "HealthFirst",
       "category": "Wearables",
-      "image": "https://source.unsplash.com/random/600x600?fitness-tracker",
+      "image": "fitness+tracker",
       "specifications": {
         "batteryLife": "7 days",
         "sensors": "Heart Rate, GPS",
@@ -173,7 +173,7 @@
       "name": "Portable Projector",
       "brand": "CinemaTech",
       "category": "Electronics",
-      "image": "https://source.unsplash.com/random/600x600?projector",
+      "image": "projector",
       "specifications": {
         "resolution": "1080p",
         "brightness": "3000 lumens",
@@ -185,7 +185,7 @@
       "name": "Action Camera",
       "brand": "AdventureCam",
       "category": "Photography",
-      "image": "https://source.unsplash.com/random/600x600?action-camera",
+      "image": "action+camera",
       "specifications": {
         "resolution": "4K",
         "frameRate": "60 fps",
@@ -197,7 +197,7 @@
       "name": "Digital Drawing Tablet",
       "brand": "ArtistryTech",
       "category": "Accessories",
-      "image": "https://source.unsplash.com/random/600x600?drawing-tablet",
+      "image": "drawing+tablet",
       "specifications": {
         "activeArea": "10x6 inches",
         "pressureLevels": "8192",
@@ -209,7 +209,7 @@
       "name": "3D Printer",
       "brand": "PrintTech",
       "category": "Electronics",
-      "image": "https://source.unsplash.com/random/600x600?3d-printer",
+      "image": "3d+printer",
       "specifications": {
         "printVolume": "220x220x250mm",
         "layerResolution": "0.1mm",
@@ -221,7 +221,7 @@
       "name": "Robot Vacuum",
       "brand": "CleanBot",
       "category": "Home Appliances",
-      "image": "https://source.unsplash.com/random/600x600?robot-vacuum",
+      "image": "robot+vacuum",
       "specifications": {
         "batteryLife": "150 minutes",
         "suctionPower": "2000Pa",
@@ -233,7 +233,7 @@
       "name": "Espresso Machine",
       "brand": "CoffeePro",
       "category": "Kitchen Appliances",
-      "image": "https://source.unsplash.com/random/600x600?espresso-machine",
+      "image": "espresso+machine",
       "specifications": {
         "capacity": "2 cups",
         "pressure": "15 bar",
