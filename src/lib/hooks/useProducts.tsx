@@ -10,14 +10,20 @@ import { api } from "../services/api";
 
 interface ProductContextData {
   products: Product[];
+  filteredProducts: Product[] | null;
   isLoading: boolean;
   error: string | null;
+  searchProducts: (search: string) => void;
+  clearSearch: () => void;
 }
 
 const ProductsContext = createContext<ProductContextData | null>(null);
 
 function ProductsProvider({ children }: { children: ReactNode }) {
   const [products, setProducts] = useState<Product[]>([]);
+  const [filteredProducts, setFilteredProducts] = useState<Product[] | null>(
+    null,
+  );
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
@@ -33,12 +39,36 @@ function ProductsProvider({ children }: { children: ReactNode }) {
     }
   }
 
+  function searchProducts(search: string) {
+    if (!search.length) {
+      setFilteredProducts(null);
+    }
+
+    const filtered = products.filter((product) =>
+      product.name.toLowerCase().includes(search),
+    );
+    setFilteredProducts(filtered);
+  }
+
+  function clearSearch() {
+    setFilteredProducts(null);
+  }
+
   useEffect(() => {
     fetchProjects();
   }, []);
 
   return (
-    <ProductsContext.Provider value={{ products, isLoading, error }}>
+    <ProductsContext.Provider
+      value={{
+        products,
+        filteredProducts,
+        isLoading,
+        error,
+        searchProducts,
+        clearSearch,
+      }}
+    >
       {children}
     </ProductsContext.Provider>
   );
