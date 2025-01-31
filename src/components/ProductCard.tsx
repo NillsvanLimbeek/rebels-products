@@ -11,7 +11,7 @@ export function ProductCard({ product }: Props) {
   const { image, loading } = usePixabay(product.imageSearch);
 
   return (
-    <Link to="/product/$id" params={{ id: String(product.id) }}>
+    <Link to="/product/$id" params={{ id: product.id }}>
       <article className="hover:text-rebels relative aspect-square cursor-pointer overflow-hidden rounded-xl text-white transition-transform duration-200 ease-in-out hover:-translate-y-1">
         {loading ? (
           <Spinner />

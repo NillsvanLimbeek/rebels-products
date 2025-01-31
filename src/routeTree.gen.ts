@@ -8,31 +8,33 @@
 // You should NOT make any changes in this file as it will be overwritten.
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
-import { createFileRoute } from '@tanstack/react-router'
-
 // Import Routes
 
 import { Route as rootRoute } from './routes/__root'
+import { Route as WishlistsImport } from './routes/wishlists'
+import { Route as IndexImport } from './routes/index'
+import { Route as WishlistIdImport } from './routes/wishlist/$id'
 import { Route as ProductIdImport } from './routes/product/$id'
-
-// Create Virtual Routes
-
-const WishlistsLazyImport = createFileRoute('/wishlists')()
-const IndexLazyImport = createFileRoute('/')()
 
 // Create/Update Routes
 
-const WishlistsLazyRoute = WishlistsLazyImport.update({
+const WishlistsRoute = WishlistsImport.update({
   id: '/wishlists',
   path: '/wishlists',
   getParentRoute: () => rootRoute,
-} as any).lazy(() => import('./routes/wishlists.lazy').then((d) => d.Route))
+} as any)
 
-const IndexLazyRoute = IndexLazyImport.update({
+const IndexRoute = IndexImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRoute,
-} as any).lazy(() => import('./routes/index.lazy').then((d) => d.Route))
+} as any)
+
+const WishlistIdRoute = WishlistIdImport.update({
+  id: '/wishlist/$id',
+  path: '/wishlist/$id',
+  getParentRoute: () => rootRoute,
+} as any)
 
 const ProductIdRoute = ProductIdImport.update({
   id: '/product/$id',
@@ -48,14 +50,14 @@ declare module '@tanstack/react-router' {
       id: '/'
       path: '/'
       fullPath: '/'
-      preLoaderRoute: typeof IndexLazyImport
+      preLoaderRoute: typeof IndexImport
       parentRoute: typeof rootRoute
     }
     '/wishlists': {
       id: '/wishlists'
       path: '/wishlists'
       fullPath: '/wishlists'
-      preLoaderRoute: typeof WishlistsLazyImport
+      preLoaderRoute: typeof WishlistsImport
       parentRoute: typeof rootRoute
     }
     '/product/$id': {
@@ -65,49 +67,61 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProductIdImport
       parentRoute: typeof rootRoute
     }
+    '/wishlist/$id': {
+      id: '/wishlist/$id'
+      path: '/wishlist/$id'
+      fullPath: '/wishlist/$id'
+      preLoaderRoute: typeof WishlistIdImport
+      parentRoute: typeof rootRoute
+    }
   }
 }
 
 // Create and export the route tree
 
 export interface FileRoutesByFullPath {
-  '/': typeof IndexLazyRoute
-  '/wishlists': typeof WishlistsLazyRoute
+  '/': typeof IndexRoute
+  '/wishlists': typeof WishlistsRoute
   '/product/$id': typeof ProductIdRoute
+  '/wishlist/$id': typeof WishlistIdRoute
 }
 
 export interface FileRoutesByTo {
-  '/': typeof IndexLazyRoute
-  '/wishlists': typeof WishlistsLazyRoute
+  '/': typeof IndexRoute
+  '/wishlists': typeof WishlistsRoute
   '/product/$id': typeof ProductIdRoute
+  '/wishlist/$id': typeof WishlistIdRoute
 }
 
 export interface FileRoutesById {
   __root__: typeof rootRoute
-  '/': typeof IndexLazyRoute
-  '/wishlists': typeof WishlistsLazyRoute
+  '/': typeof IndexRoute
+  '/wishlists': typeof WishlistsRoute
   '/product/$id': typeof ProductIdRoute
+  '/wishlist/$id': typeof WishlistIdRoute
 }
 
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/wishlists' | '/product/$id'
+  fullPaths: '/' | '/wishlists' | '/product/$id' | '/wishlist/$id'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/wishlists' | '/product/$id'
-  id: '__root__' | '/' | '/wishlists' | '/product/$id'
+  to: '/' | '/wishlists' | '/product/$id' | '/wishlist/$id'
+  id: '__root__' | '/' | '/wishlists' | '/product/$id' | '/wishlist/$id'
   fileRoutesById: FileRoutesById
 }
 
 export interface RootRouteChildren {
-  IndexLazyRoute: typeof IndexLazyRoute
-  WishlistsLazyRoute: typeof WishlistsLazyRoute
+  IndexRoute: typeof IndexRoute
+  WishlistsRoute: typeof WishlistsRoute
   ProductIdRoute: typeof ProductIdRoute
+  WishlistIdRoute: typeof WishlistIdRoute
 }
 
 const rootRouteChildren: RootRouteChildren = {
-  IndexLazyRoute: IndexLazyRoute,
-  WishlistsLazyRoute: WishlistsLazyRoute,
+  IndexRoute: IndexRoute,
+  WishlistsRoute: WishlistsRoute,
   ProductIdRoute: ProductIdRoute,
+  WishlistIdRoute: WishlistIdRoute,
 }
 
 export const routeTree = rootRoute
@@ -122,17 +136,21 @@ export const routeTree = rootRoute
       "children": [
         "/",
         "/wishlists",
-        "/product/$id"
+        "/product/$id",
+        "/wishlist/$id"
       ]
     },
     "/": {
-      "filePath": "index.lazy.tsx"
+      "filePath": "index.tsx"
     },
     "/wishlists": {
-      "filePath": "wishlists.lazy.tsx"
+      "filePath": "wishlists.tsx"
     },
     "/product/$id": {
       "filePath": "product/$id.tsx"
+    },
+    "/wishlist/$id": {
+      "filePath": "wishlist/$id.tsx"
     }
   }
 }

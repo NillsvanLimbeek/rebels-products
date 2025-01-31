@@ -2,11 +2,16 @@ import { FormEvent, useState } from "react";
 import { Close } from "./icons/Close";
 
 interface Props {
+  placeholder: string;
   handleSearch: (search: string) => void;
   handleClearSearch: () => void;
 }
 
-export function Search({ handleSearch, handleClearSearch }: Props) {
+export function Search({
+  handleSearch,
+  handleClearSearch,
+  placeholder,
+}: Props) {
   const [search, setSearch] = useState("");
 
   function onSubmit(e: FormEvent) {
@@ -31,7 +36,7 @@ export function Search({ handleSearch, handleClearSearch }: Props) {
           type="text"
           id="search"
           name="search"
-          placeholder="Search for products"
+          placeholder={placeholder}
           value={search}
           onChange={(e) => setSearch(e.target.value)}
         />
