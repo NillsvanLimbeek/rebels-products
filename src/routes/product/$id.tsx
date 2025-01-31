@@ -26,7 +26,7 @@ function RouteComponent() {
 
         <div>
           {Object.entries(product.specifications).map(([key, value]) => (
-            <dl className="flex gap-2">
+            <dl className="flex gap-2" key={key}>
               <dt>{formatCamelCase(key)}:</dt>
               <dd>{value}</dd>
             </dl>
