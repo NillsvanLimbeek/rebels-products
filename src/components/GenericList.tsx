@@ -1,13 +1,15 @@
-import { Product } from "@/lib/types/Product";
-import { ProductCard } from "./ProductCard";
 import { RebelsLogo } from "./RebelsLogo";
 
-interface Props {
-  products: Product[];
+interface GenericListProps<T> {
+  items: T[];
+  renderItem: (item: T) => React.ReactNode;
 }
 
-export function ProductList({ products }: Props) {
-  if (!products.length) {
+export function GenericList<T extends { id: string | number }>({
+  items,
+  renderItem,
+}: GenericListProps<T>) {
+  if (!items.length) {
     return (
       <div className="flex h-80 w-full items-center justify-center gap-4">
         <RebelsLogo />
@@ -18,8 +20,8 @@ export function ProductList({ products }: Props) {
 
   return (
     <ul className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-      {products.map((product) => (
-        <ProductCard product={product} key={product.id} />
+      {items.map((item) => (
+        <li key={item.id}>{renderItem(item)}</li>
       ))}
     </ul>
   );
