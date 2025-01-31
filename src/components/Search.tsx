@@ -1,5 +1,6 @@
 import { FormEvent, useState } from "react";
 import { Close } from "./icons/Close";
+import { Button } from "./Button";
 
 interface Props {
   placeholder: string;
@@ -52,12 +53,7 @@ export function Search({
         )}
       </div>
 
-      <button
-        type="submit"
-        className="bg-rebels cursor-pointer rounded-4xl px-8 py-2 text-white transition-colors duration-200 ease-in-out hover:bg-black"
-      >
-        Search
-      </button>
+      <Button type="submit" label="Search" />
     </form>
   );
 }

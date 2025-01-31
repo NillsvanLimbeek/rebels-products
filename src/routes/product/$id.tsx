@@ -1,3 +1,4 @@
+import { Button } from "@/components/Button";
 import { api } from "@/lib/services/api";
 import { formatCamelCase } from "@/lib/utils/format-camel-case";
 import { createFileRoute } from "@tanstack/react-router";
@@ -33,9 +34,7 @@ function RouteComponent() {
           ))}
         </div>
 
-        <button className="bg-rebels cursor-pointer rounded-4xl px-8 py-2 text-white transition-colors duration-200 ease-in-out hover:bg-black">
-          Add to wishlist
-        </button>
+        <Button label="Add to wishlist" />
       </div>
     </div>
   );
