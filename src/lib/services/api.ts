@@ -1,6 +1,7 @@
 import { RequestConfig } from "../types/RequestConfig";
 import { substituteParams } from "../utils/substitute-params";
 import { ApiGetResponse } from "./dto-types/api-get";
+import { ApiPostRequest, ApiPostResponse } from "./dto-types/api-post";
 
 const baseUrl = import.meta.env.VITE_MOCK_API;
 
@@ -14,6 +15,7 @@ async function typesafeFetch<T>(
     headers: {
       "Content-Type": "application/json",
     },
+    body: config?.body,
   });
 
   if (!res.ok) {
@@ -31,6 +33,20 @@ export const api = {
   ): Promise<ApiGetResponse[T]> {
     return typesafeFetch("GET", url, {
       ...config,
+    });
+  },
+
+  async post<T extends keyof ApiPostRequest & keyof ApiPostResponse>(
+    path: T,
+    data: ApiPostRequest[T],
+    config?: RequestConfig<string>,
+  ): Promise<ApiPostResponse[T]> {
+    return typesafeFetch<ApiPostResponse[T]>("POST", path, {
+      ...config,
+      headers: {
+        ...config?.headers,
+      },
+      body: JSON.stringify(data),
     });
   },
 };

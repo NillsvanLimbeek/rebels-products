@@ -13,6 +13,7 @@ interface WishlistContextData {
   filteredWishlists: Wishlist[] | null;
   isLoading: boolean;
   error: string | null;
+  fetchWishlists: () => void;
   searchWishlists: (search: string) => void;
   clearSearch: () => void;
 }
@@ -65,6 +66,7 @@ function WishlistsProvider({ children }: { children: ReactNode }) {
         filteredWishlists,
         isLoading,
         error,
+        fetchWishlists,
         searchWishlists,
         clearSearch,
       }}
