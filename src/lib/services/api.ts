@@ -3,6 +3,7 @@ import { substituteParams } from "../utils/substitute-params";
 import { ApiDeleteRequest, ApiDeleteResponse } from "./dto-types/api-delete";
 import { ApiGetResponse } from "./dto-types/api-get";
 import { ApiPostRequest, ApiPostResponse } from "./dto-types/api-post";
+import { ApiPutRequest, ApiPutResponse } from "./dto-types/api.put";
 
 const baseUrl = import.meta.env.VITE_MOCK_API;
 
@@ -51,6 +52,20 @@ export const api = {
     });
   },
 
+  async put<T extends keyof ApiPutRequest & keyof ApiPutResponse>(
+    path: T,
+    data: ApiPutRequest[T],
+    config?: RequestConfig<string>,
+  ): Promise<ApiPutResponse[T]> {
+    return typesafeFetch("PUT", path, {
+      ...config,
+      headers: {
+        ...config?.headers,
+      },
+      body: JSON.stringify(data),
+    });
+  },
+
   async delete<T extends keyof ApiDeleteRequest & keyof ApiDeleteResponse>(
     path: T,
     config?: RequestConfig<string>,
@@ -59,7 +74,6 @@ export const api = {
       ...config,
       headers: {
         ...config?.headers,
-        "Content-Type": "application/json",
       },
     });
   },
