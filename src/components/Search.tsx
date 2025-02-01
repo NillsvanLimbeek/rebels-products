@@ -26,7 +26,11 @@ export function Search({
   }
 
   return (
-    <form onSubmit={onSubmit} className="mb-5 flex w-full items-center">
+    <form
+      onSubmit={onSubmit}
+      data-testid="form"
+      className="mb-5 flex w-full items-center"
+    >
       <label htmlFor="search" className="mr-3 text-xl">
         Search
       </label>
@@ -45,6 +49,7 @@ export function Search({
         {search.length > 0 && (
           <button
             type="button"
+            data-testid="clear"
             className="hover:text-rebels absolute top-[50%] right-5 z-10 translate-y-[-50%] cursor-pointer rounded-full"
             onClick={onClearSearch}
           >

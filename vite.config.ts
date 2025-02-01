@@ -8,7 +8,9 @@ import { TanStackRouterVite } from "@tanstack/router-plugin/vite";
 export default defineConfig({
   plugins: [tailwindcss(), TanStackRouterVite(), react()],
   test: {
+    globals: true,
     environment: "jsdom",
+    setupFiles: ["./setup-tests.ts"],
   },
   resolve: {
     alias: {
