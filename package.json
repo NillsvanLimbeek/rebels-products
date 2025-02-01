@@ -8,7 +8,8 @@
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "test": "vitest",
+    "test:vitest": "vitest",
+    "test:playwright": "npx playwright test",
     "json-server": "npx json-server db.json"
   },
   "dependencies": {
@@ -22,6 +23,7 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.17.0",
+    "@playwright/test": "^1.50.1",
     "@tanstack/router-devtools": "^1.98.3",
     "@tanstack/router-plugin": "^1.98.3",
     "@testing-library/dom": "^10.4.0",
