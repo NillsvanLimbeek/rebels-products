@@ -1,8 +1,10 @@
+import { Button } from "@/components/Button";
 import { GenericList } from "@/components/GenericList";
 import { ProductCard } from "@/components/ProductCard";
+import { useWishlists } from "@/lib/hooks/useWishlists";
 import { api } from "@/lib/services/api";
 import { Product } from "@/lib/types/Product";
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 
 function fetchData(id: string) {
@@ -13,13 +15,16 @@ function fetchData(id: string) {
 }
 
 export const Route = createFileRoute("/wishlist/$id")({
-  component: RouteComponent,
+  component: WishlistDetail,
   loader: (e) => fetchData(e.params.id),
 });
 
-function RouteComponent() {
+function WishlistDetail() {
+  const { id } = Route.useParams();
   const [products, wishlist] = Route.useLoaderData();
   const [wishlistProducts, setWishlistProducts] = useState<Product[]>([]);
+  const navigate = useNavigate({ from: "/wishlist/$id" });
+  const { fetchWishlists } = useWishlists();
 
   function findProductsByIds(ids: number[], products: Product[]) {
     const matchingProducts: Product[] = [];
@@ -33,6 +38,7 @@ function RouteComponent() {
 
     return matchingProducts;
   }
+
   useEffect(() => {
     if (products && wishlist) {
       const wishlistProducts = findProductsByIds(wishlist.products, products);
@@ -40,9 +46,19 @@ function RouteComponent() {
     }
   }, [products, wishlist]);
 
+  async function handleDeleteWishlist() {
+    await api.delete("/wishlists/{id}", { params: { id } });
+    navigate({ to: "/wishlists" });
+    fetchWishlists();
+  }
+
   return (
     <>
-      <h1 className="mb-3 text-4xl">{wishlist.name}</h1>
+      <div className="mb-3 flex items-center gap-5">
+        <h1 className="text-4xl">{wishlist.name}</h1>
+        <Button label="Delete wishlist" onClick={handleDeleteWishlist} />
+      </div>
+
       <GenericList
         items={wishlistProducts}
         renderItem={(product) => <ProductCard product={product} />}

@@ -1,5 +1,6 @@
 import { RequestConfig } from "../types/RequestConfig";
 import { substituteParams } from "../utils/substitute-params";
+import { ApiDeleteRequest, ApiDeleteResponse } from "./dto-types/api-delete";
 import { ApiGetResponse } from "./dto-types/api-get";
 import { ApiPostRequest, ApiPostResponse } from "./dto-types/api-post";
 
@@ -47,6 +48,19 @@ export const api = {
         ...config?.headers,
       },
       body: JSON.stringify(data),
+    });
+  },
+
+  async delete<T extends keyof ApiDeleteRequest & keyof ApiDeleteResponse>(
+    path: T,
+    config?: RequestConfig<string>,
+  ): Promise<ApiDeleteResponse[T]> {
+    return typesafeFetch("DELETE", path, {
+      ...config,
+      headers: {
+        ...config?.headers,
+        "Content-Type": "application/json",
+      },
     });
   },
 };
