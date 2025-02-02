@@ -10,7 +10,7 @@ test.describe("Search", () => {
       .locator('[data-testid="product-item"]')
       .count();
 
-    expect(beforeSearch).toBeGreaterThan(10);
+    expect(beforeSearch).toEqual(20);
 
     await page.fill("input", "laptop");
     await page.press("input", "Enter");
@@ -44,7 +44,7 @@ test.describe("Search", () => {
     await page.press("input", "Enter");
 
     const items = await page.locator('[data-testid="product-item"]').count();
-    expect(items).toBeGreaterThan(10);
+    expect(items).toEqual(20);
   });
 
   test("should reset the products when clearing the search query", async ({
@@ -59,6 +59,6 @@ test.describe("Search", () => {
     await page.getByTestId("clear").click();
 
     const items = await page.locator('[data-testid="product-item"]').count();
-    expect(items).toBeGreaterThan(10);
+    expect(items).toEqual(20);
   });
 });

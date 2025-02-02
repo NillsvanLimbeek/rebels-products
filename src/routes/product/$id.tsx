@@ -59,7 +59,11 @@ function RouteComponent() {
             ))}
           </div>
 
-          <Button label="Add to wishlist" onClick={() => setShowModal(true)} />
+          <Button
+            testid="add-to-wishlist"
+            label="Add to wishlist"
+            onClick={() => setShowModal(true)}
+          />
         </div>
       </div>
 
@@ -82,7 +86,7 @@ function RouteComponent() {
             ))}
           </select>
 
-          <Button type="submit" label="Add" />
+          <Button testid="add-product" type="submit" label="Add" />
         </form>
       </Modal>
     </>

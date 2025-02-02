@@ -46,7 +46,11 @@ function Wishlists() {
       />
 
       <div className="mb-5">
-        <Button label="Add new wishlist" onClick={() => setIsModalOpen(true)} />
+        <Button
+          testid="add-wishlist"
+          label="Add new wishlist"
+          onClick={() => setIsModalOpen(true)}
+        />
       </div>
 
       <GenericList
@@ -59,7 +63,11 @@ function Wishlists() {
         onClose={() => setIsModalOpen(false)}
         title="Add wishlist"
       >
-        <form onSubmit={handleSubmit} className="flex flex-col">
+        <form
+          data-testid="add-wishlist-form"
+          onSubmit={handleSubmit}
+          className="flex flex-col"
+        >
           <label htmlFor="title" className="text-xl">
             Name
           </label>

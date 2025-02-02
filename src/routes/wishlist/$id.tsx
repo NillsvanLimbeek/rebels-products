@@ -69,7 +69,11 @@ function WishlistDetail() {
     <>
       <div className="mb-3 flex items-center gap-5">
         <h1 className="text-4xl">{wishlist.name}</h1>
-        <Button label="Delete wishlist" onClick={handleDeleteWishlist} />
+        <Button
+          testid="delete-wishlist"
+          label="Delete wishlist"
+          onClick={handleDeleteWishlist}
+        />
       </div>
 
       <GenericList

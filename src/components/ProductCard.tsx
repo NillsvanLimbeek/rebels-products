@@ -43,6 +43,7 @@ export function ProductCard({
       {removeFromWishlist && handleRemoveFromWishlist && (
         <div className="mt-1 flex justify-center">
           <Button
+            testid="remove-from-wishlist"
             label="Remove"
             onClick={() => handleRemoveFromWishlist(product.id)}
           />
