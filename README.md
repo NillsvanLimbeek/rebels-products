@@ -1,50 +1,91 @@
-# React + TypeScript + Vite
+# Rebels Products
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project is a product website featuring product listings, wishlist functionality, and product search capabilities.
+It's built using a modern tech stack and emphasizes maintainability through comprehensive testing.
 
-Currently, two official plugins are available:
+## Technologies Used
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Frontend:**
+  - [React](https://reactjs.org/)
+  - [TypeScript](https://www.typescriptlang.org/)
+  - [Tailwind CSS](https://tailwindcss.com/)
+  - [TanStack Router](https://tanstack.com/router)
+- **Testing:**
+  - [Vitest](https://vitest.dev/)
+  - [Playwright](https://playwright.dev/)
 
-## Expanding the ESLint configuration
+## Project Overview
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+This website allows users to browse a catalog of products, search for specific products, view product details, and manage their wishlists. The key features include:
 
-- Configure the top-level `parserOptions` property like this:
+- **Product Listing:** Displays a catalog of products with images.
+- **Product Search:** Enables users to search for products by name.
+- **Product Details:** Provides information about individual products.
+- **Wishlist:** Enables users to add and remove products from a personal wishlist.
+- **Responsive Design:** The website is designed to be responsive and work seamlessly across different devices.
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+## Getting Started
+
+### Prerequisites
+
+Make sure you have the following installed:
+
+- Node.js (v16 or higher recommended)
+- pnpm
+
+### Installation
+
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/NillsvanLimbeek/rebels-products.git
+   ```
+
+2. Navigate to the project directory:
+
+   ```bash
+   cd rebels-products
+   ```
+
+3. Copy the `.env.example` file to `.env` and update the values with your environment variables.
+
+   ```bash
+   cp .env.example .env
+   ```
+
+4. Install dependencies:
+
+   ```bash
+   pnpm install
+   ```
+
+### Development
+
+1. Start the development server:
+
+   ```bash
+   pnpm run dev
+   ```
+
+   This will start the development server and json-server as the backend server.
+
+### Testing
+
+#### Unit and Integration Tests (Vitest)
+
+```bash
+pnpm test:vitest
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+#### E2E Tests (Playwright)
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+```bash
+pnpm test:playwright
 ```
+
+### Future Improvement
+
+- **Notification System**: Implement a user-friendly notification system to provide clear feedback after specific actions (e.g., adding to wishlist, successful search).
+- **Improve Wishlist Playwright Testing**: Enhance the Playwright end-to-end tests to thoroughly cover the wishlist functionality, including adding, removing. Make more use of Playwright's mocking capabilities
+- **Image Caching**: Optimize image loading performance by implementing caching using a library like TanStack Query.
+- **State Management**: Migrate from React Context to a more robust state management solution like Zustand for improved code structure and maintainability.
