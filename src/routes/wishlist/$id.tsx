@@ -52,6 +52,19 @@ function WishlistDetail() {
     fetchWishlists();
   }
 
+  async function handleRemoveFromWishlist(id: string) {
+    const products = wishlistProducts.filter((product) => product.id !== id);
+
+    setWishlistProducts(products);
+
+    await api.put(
+      "/wishlists/{id}",
+      { ...wishlist, products: products.map((product) => Number(product.id)) },
+      { params: { id: wishlist.id } },
+    );
+    fetchWishlists();
+  }
+
   return (
     <>
       <div className="mb-3 flex items-center gap-5">
@@ -61,7 +74,13 @@ function WishlistDetail() {
 
       <GenericList
         items={wishlistProducts}
-        renderItem={(product) => <ProductCard product={product} />}
+        renderItem={(product) => (
+          <ProductCard
+            product={product}
+            removeFromWishlist
+            handleRemoveFromWishlist={(e) => handleRemoveFromWishlist(e)}
+          />
+        )}
       />
     </>
   );
