@@ -1,5 +1,9 @@
 import { test, expect } from "@playwright/test";
 
+// TODO: need to revisit this at some point.
+// these are a bit flaky and most of them will fail after running multiple tests probaly because of updating db.json
+// need to investigate Playwright mocking and update these
+
 test.describe("Wishlist", () => {
   test.beforeEach(async ({ page }) => {
     await page.goto("/wishlists");
