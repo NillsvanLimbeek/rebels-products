@@ -1,7 +1,7 @@
 import { Button } from "@/components/Button";
-import { GenericList } from "@/components/GenericList";
+import { GenericList } from "@/components/GenericList/GenericList";
 import { Modal } from "@/components/Modal";
-import { Search } from "@/components/Search";
+import { Search } from "@/components/Search/Search";
 import { WishlistCard } from "@/components/WishlistCard";
 import { useWishlists } from "@/lib/hooks/useWishlists";
 import { api } from "@/lib/services/api";

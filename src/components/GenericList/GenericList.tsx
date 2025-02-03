@@ -1,4 +1,4 @@
-import { RebelsLogo } from "./RebelsLogo";
+import { RebelsLogo } from "../RebelsLogo";
 
 interface GenericListProps<T> {
   items: T[];

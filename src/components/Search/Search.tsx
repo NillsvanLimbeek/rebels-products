@@ -1,6 +1,6 @@
 import { FormEvent, useState } from "react";
-import { Close } from "./icons/Close";
-import { Button } from "./Button";
+import { Close } from "../icons/Close";
+import { Button } from "../Button";
 
 interface Props {
   placeholder: string;

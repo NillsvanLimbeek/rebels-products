@@ -1,6 +1,6 @@
 import { ProductCard } from "@/components/ProductCard";
-import { GenericList } from "@/components/GenericList";
-import { Search } from "@/components/Search";
+import { GenericList } from "@/components/GenericList/GenericList";
+import { Search } from "@/components/Search/Search";
 import { useProducts } from "@/lib/hooks/useProducts";
 import { createFileRoute } from "@tanstack/react-router";
 

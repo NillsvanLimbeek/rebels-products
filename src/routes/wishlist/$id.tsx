@@ -1,5 +1,5 @@
 import { Button } from "@/components/Button";
-import { GenericList } from "@/components/GenericList";
+import { GenericList } from "@/components/GenericList/GenericList";
 import { ProductCard } from "@/components/ProductCard";
 import { useWishlists } from "@/lib/hooks/useWishlists";
 import { api } from "@/lib/services/api";
